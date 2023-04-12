@@ -4,6 +4,8 @@ import HomeView from '@/views/HomeView.vue'
 import Posts from '@/views/Posts.vue'
 import DetailPost from '@/views/DetailPost.vue'
 
+import.meta as Record<string, any> & { env: Record<string, any> };
+
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [

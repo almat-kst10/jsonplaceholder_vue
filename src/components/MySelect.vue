@@ -12,7 +12,7 @@ import { onMounted, ref, computed, watch, reactive } from 'vue'
 import { RouterView } from 'vue-router'
 
 const props = defineProps({
-  sortArray: Array
+  sortArray: Object
 })
 
 const select = ref<string>('')
@@ -22,6 +22,15 @@ const emit = defineEmits(['submit'])
 const selectItem = (value: any) => {
     emit('submit', value.target.value)
 }
+
+// const getProperty = (obj: unknown) => {
+//   if (typeof obj === 'object' && obj !== null) {
+//     if (key in obj) {
+//       return (obj as Record<string, unknown>)[key];
+//     }
+//   }
+//   return undefined;
+// }
 
 </script>
 

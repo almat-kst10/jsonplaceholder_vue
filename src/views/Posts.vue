@@ -21,7 +21,7 @@
                     </div>
                     <input v-model="formData.title" type="text" class="form-control mb-2" placeholder="Заголовок" aria-label="Text input with dropdown button">
                     <input v-model="formData.body" type="text" class="form-control mb-2" placeholder="Текст" aria-label="Text input with dropdown button">
-                    <button @click="createPost()" type="button ml-auto" style="margin-left: auto" class="btn btn-primary">Создать</button>
+                    <button @click="createPost()" style="margin-left: auto" class="btn btn-primary">Создать</button>
                 </div>
             </div>
         </div>
@@ -64,14 +64,25 @@ const isShown = ref<boolean>(false)
 const myModal = ref(null)
 
 // params 
-const params = reactive({
+interface Params {
+  page: number;
+  limit: number;
+  pageLen: number;
+}
+
+const params = reactive<Params>({
     page: 1,
     limit: 10,
     pageLen: 10
 })
 
+interface SortOption {
+  id: number;
+  text: string;
+  value: string;
+}
 // select logic
-const sortArray = ref([
+const sortArray = ref<SortOption[]>([
     {id: 1, text: 'По индексу', value: 'index'},
     {id: 2, text: 'По названию', value: 'name'},
 ])
